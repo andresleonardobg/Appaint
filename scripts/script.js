@@ -1,7 +1,8 @@
 
 var backg = 'rgba(255,255,255,0)'
-var image = null
+var imageLoad
 
+//take the values of html
 function paramaters(data){
     return document.querySelector(data)
 }
@@ -9,12 +10,9 @@ function paramaters(data){
 function setup(){
     var canvas = createCanvas(650,400)
     canvas.parent("canvass")
-    image
 }
 
-function draw(){
-}
-
+//draw
 function mouseDragged(){
 
     let type = paramaters('#pen-pencil').checked?'pencil':'eraser'
@@ -28,26 +26,29 @@ function mouseDragged(){
         line(pmouseX, pmouseY, mouseX, mouseY)
     }else{
         fill(backg)
+        stroke(0)
         ellipse(mouseX, mouseY, size);
     }
 }
 
+//eraser canvas
 paramaters('#reset').addEventListener('click',
     () =>{
         clear()
     }
 )
 
+//save image
 paramaters('#record').addEventListener('click',
     () => {
         saveCanvas(canvas, "test", "png")
     }
 )
 
-paramaters('#load').addEventListener('click',
-    () => {
-        loadImage('img/test.png', img => {
-            image(img, 0, 0);
-          });
-    }
-)
+//get path of the image and load de image in the canvas
+function pathFile(event){
+    imageLoad = URL.createObjectURL(event.target.files[0]);
+    loadImage(imageLoad, img => {
+        image(img, 0, 0);
+      })
+}
