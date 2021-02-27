@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Panel -->
+    <div class="container bg-dark p-4 text-white row">
+        <div class="mx-3">
+            <label for="">Tamaño</label>
+            <input type="range" min="1" max="100" id="size">
+        </div>
+        <div class="mx-3">
+            <label for="">Color</label>
+            <input type="color" id="colors">
+        </div>
+        <div class="mx-3">
+            <button id="record" class="btn btn-primary mx-1">Guardar</button>
+            <button id="reset" class="btn btn-primary mx-1">Borrar</button>
+            <button id="load" class="btn btn-primary mx-1">Cargar</button>
+        </div>
+        <div class="mx-3">
+            <label for="">Herramienta</label>
+            Pincel<input type="radio" name="herramienta" id="pen-pencil" checked>
+            Borrador<input type="radio" name="herramienta" id="pen-eraser">
+        </div>
+        
+        <div id="canvass" class="border mt-5 ml-3 justify-content-center"></div>
+    </div>
+    
+
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.js"></script>
+
+    <!-- colorPicker whit alpha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"></script>
+
+    <!-- own scripts -->
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
