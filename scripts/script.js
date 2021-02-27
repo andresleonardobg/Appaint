@@ -46,7 +46,7 @@ paramaters('#record').addEventListener('click',
 
 paramaters('#load').addEventListener('click',
     () => {
-        loadImage('test/test.png', img => {
+        loadImage('img/test.png', img => {
             image(img, 0, 0);
           });
     }
