@@ -12,7 +12,7 @@ function setup(){
     canvas.parent("canvass")
 }
 
-//draw
+//drawa and erase
 function mouseDragged(){
 
     let type = paramaters('#pen-pencil').checked?'pencil':'eraser'
@@ -25,9 +25,9 @@ function mouseDragged(){
         stroke(colorPen)
         line(pmouseX, pmouseY, mouseX, mouseY)
     }else{
-        fill(backg)
-        stroke(0)
+        erase();
         ellipse(mouseX, mouseY, size);
+        noErase();
     }
 }
 
@@ -45,7 +45,7 @@ paramaters('#record').addEventListener('click',
     }
 )
 
-//get path of the image and load de image in the canvas
+//get path of the image and load in the canvas
 function pathFile(event){
     imageLoad = URL.createObjectURL(event.target.files[0]);
     loadImage(imageLoad, img => {
