@@ -12,6 +12,7 @@ function paramaters(data){
 function setup(){
     var canvas = createCanvas(650,400)
     canvas.parent("canvass")
+    brushStrokes.push(get(0,0,650,400))
 }
 
 //draw and erase
@@ -63,22 +64,28 @@ function mouseReleased(){
 
 //undo and redo
 function keyPressed(){
-    if(key == "u"){
-        clear()
-        var l = brushStrokes.length - 1
-        var i = brushStrokes[l - undoRedo] 
-        image(i, 0,0, 650, 400)
-        undoRedo += 1
+    if(undoRedo < brushStrokes.length){
+        if(key == "u"){
+            clear()
+            undoRedo += 1
+            var l = brushStrokes.length - 1
+            var i = brushStrokes[l - undoRedo] 
+            image(i, 0,0)
+        }
     }
+    
 
-    if(key == "r"){
-        clear()
-        var l = brushStrokes.length - 1
-        undoRedo -= 1
-        var i = brushStrokes[l - undoRedo] 
-        image(i, 0, 0, 650, 400)
-        
+    if(undoRedo > 0){
+        if(key == "r"){
+            clear()
+            var l = brushStrokes.length - 1
+            undoRedo -= 1
+            var i = brushStrokes[l - undoRedo] 
+            image(i, 0, 0)
+            
+        }
     }
+    
     
     console.log(undoRedo)
 }
